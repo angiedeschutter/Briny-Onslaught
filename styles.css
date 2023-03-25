@@ -1,7 +1,6 @@
 #background{
     z-index: -1;
     height:450px;
-
 }
 
 .container{
@@ -21,7 +20,6 @@
     background-color:aqua
 
 }
-
 #score{
     text-align: center;
 }

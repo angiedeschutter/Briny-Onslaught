@@ -4,7 +4,3 @@ swimmer.style.position = 'absolute'
 document.body.append(swimmer)
 x=0
 y=0
-
-
-
-
