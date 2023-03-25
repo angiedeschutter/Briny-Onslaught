@@ -1,5 +1,5 @@
 
-function startGame(){
+function startSwimmer(){
 async function right(time){
     let stopSwim = setInterval(swimRight,100) 
     function swimRight(){
@@ -52,6 +52,7 @@ async function right(time){
     document.getElementById('scoreCount').appendChild(para)
     
     let killAudio=document.querySelector("#audioDeath")
+    
     function clickKill(creature){
         function kill(){
             creature.remove()
@@ -76,9 +77,11 @@ async function right(time){
             right(200)
             }
             
-            route()
-            clickKill(swimmer)
-        
+            
+
+
+         route()
+         clickKill(swimmer)
 
 
         }

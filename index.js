@@ -7,3 +7,7 @@ resetButton.addEventListener('click', function(){
     location.reload()
 })
 
+function startGame(){
+    startSwimmer()
+    jellySwim()
+}
