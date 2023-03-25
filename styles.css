@@ -1,0 +1,27 @@
+#background{
+    z-index: -1;
+    height:450px;
+
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+#controls{
+    border-style: double;
+    border-style: double;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    background-color:aqua
+
+}
+
+#score{
+    text-align: center;
+}
