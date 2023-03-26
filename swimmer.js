@@ -1,11 +1,11 @@
-let swimmer = document.createElement('img')
-swimmer.src = './assets/Swim1.png'
-swimmer.style.position = 'absolute'
-document.body.append(swimmer)
-x=0
-y=0
-
-let jellyfish = document.createElement('img')
-jellyfish.src = './assets/jellyfish.png'
-jellyfish.style.position = 'absolute'
-document.body.append(jellyfish)
+async  function route(){
+    right(1000)
+    await down(1000)
+    await right(1000)
+    await up(500)
+    right(1000)
+    await down(1000)
+    await left(1000)
+    await up(500)
+    right(200)
+    }

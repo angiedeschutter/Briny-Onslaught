@@ -1,5 +1,15 @@
 
+
+
 function startSwimmer(){
+
+    let swimmer = document.createElement('img')
+    swimmer.src = './assets/Swim1.png'
+    swimmer.style.position = 'absolute'
+    document.body.append(swimmer)
+    x=0
+    y=0
+
 async function right(time){
     let stopSwim = setInterval(swimRight,100) 
     function swimRight(){
@@ -46,10 +56,7 @@ async function right(time){
     })  
     }
     
-    let score = 0
-    const para = document.createElement('p')
-    para.innerText=score
-    document.getElementById('scoreCount').appendChild(para)
+
     
     let killAudio=document.querySelector("#audioDeath")
     
@@ -57,9 +64,15 @@ async function right(time){
         function kill(){
             creature.remove()
             killAudio.play()
-            score=score +100
-            para.innerText=score
+            scoreCount.push(100)
+            score=0
+            scoreCount.forEach(value =>{
+                score+=value
+            })
+            let totalScore=score
+            para.innerText=totalScore
             document.getElementById('scoreCount').appendChild(para)
+            console.log(score)
         }
         creature.addEventListener('click', kill)
     
@@ -76,12 +89,11 @@ async function right(time){
             await up(500)
             right(200)
             }
-            
-            
+        
+            route()
+         clickKill(swimmer)      
 
+    
 
-         route()
-         clickKill(swimmer)
-
-
-        }
+    }
+    

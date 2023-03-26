@@ -7,7 +7,27 @@ resetButton.addEventListener('click', function(){
     location.reload()
 })
 
-function startGame(){
+async function startGame(){
     startSwimmer()
     jellySwim()
+    await pause(5000)
+    startSwimmer()
+    
 }
+
+function pause(time){
+    return new Promise(resolve => {
+        setTimeout(resolve, time)
+    })
+}
+
+let scoreCount = []
+let score=0
+const para = document.createElement('p')
+para.innerText=score
+document.getElementById('scoreCount').appendChild(para)
+
+console.log(scoreCount)
+
+
+
