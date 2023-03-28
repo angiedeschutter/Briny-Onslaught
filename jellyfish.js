@@ -3,50 +3,53 @@ function jellySwim(){
     
     let jellyfish = document.createElement('img')
     jellyfish.src = './assets/jellyfish.png'
-    jellyfish.style.position = 'absolute'
+    jellyfish.style.position = 'fixed'
     document.body.append(jellyfish)
+    jellyfish.style.height=200+'px'
     x=0
     y=0
 
     async function right(time){
-        let stopSwim = setInterval(swimRight,100) 
+        let startSwim = setInterval(swimRight,100) 
         
         function swimRight(){
             x=10+x
             jellyfish.style.left = x +'px'
         }  
         await stop(time)
-        clearInterval(stopSwim)
+        clearInterval(startSwim)
         }   
         
         async function left(time){
-        let stopSwim = setInterval(swimLeft,100) 
+        let startSwim = setInterval(swimLeft,100) 
         function swimLeft(){
             x=x-10
             jellyfish.style.left = x +'px'
         }  
         await stop(time)
-        clearInterval(stopSwim)
+        clearInterval(startSwim)
         }  
         
         async function down(time){
-        let stopSwim = setInterval(swimDown,200) 
+        let startSwim = setInterval(swimDown,200) 
         function swimDown(){
-            y=y+20
-            jellyfish.style.top = y +'px'
-        }  
+            if(y<280){
+                y=y+20
+                jellyfish.style.top = y +'px'
+            }else{y===280}
+        }     
         await stop(time)
-        clearInterval(stopSwim)
+        clearInterval(startSwim)
         }   
         
         async function up(time){
-        let stopSwim = setInterval(swimUp,200) 
+        let startSwim = setInterval(swimUp,200) 
         function swimUp(){
             y=y-20
             jellyfish.style.top = y +'px'
         }  
         await stop(time)
-        clearInterval(stopSwim)
+        clearInterval(startSwim)
         }   
         
         function stop(time){
@@ -62,7 +65,7 @@ function jellySwim(){
             function kill(){
                 creature.remove()
                 killAudio.play()
-                scoreCount.push(200)
+                scoreCount.push(100)
                 score=0
                 scoreCount.forEach(value =>{
                     score+=value

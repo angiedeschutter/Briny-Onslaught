@@ -68,6 +68,5 @@ function startSwimming(creature, x, y, ){
              async function combo(){
                 route()
              clickKill(creature)
-    
-    
             }
+        }
