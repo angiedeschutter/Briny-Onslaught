@@ -5,17 +5,19 @@ function startSwimmer(){
     swimmer.src = './assets/Swim1.png'
     swimmer.style.position = 'fixed'
     document.getElementById('backgroundDiv').appendChild(swimmer)
-    swimmer.style.height=50+'px'
-    x=20
+    x=0
+    swimmer.style.left = x +'px'
     y=0
+    swimmer.style.top = y +'px'
+    swimmer.style.height=30+'px'
 
 async function right(time){
     let startSwim = setInterval(swimRight,100) 
     function swimRight(){
-        if(x<750){
+        if(x<725){
             x=x+20
             swimmer.style.left = x +'px'
-        }else{x===7500}
+        }else{x===725}
     }  
     await stop(time)
     clearInterval(startSwim)
@@ -24,29 +26,29 @@ async function right(time){
     async function left(time){
     let startSwim = setInterval(swimLeft,100) 
     function swimLeft(){
-        if(x>0){
+        if(x>20){
             x=x-20
             swimmer.style.left = x +'px'
-        }else{x===0}
+        }else{x===20}
     }  
     await stop(time)
     clearInterval(startSwim)
     }  
     
     async function down(time){
-    let startSwim = setInterval(swimDown,200) 
-    function swimDown(){
-        if(y<400){
-            y=y+20
-            swimmer.style.top = y +'px'
-        }else{y===400}
-    }  
-    await stop(time)
-    clearInterval(startSwim)
+        let startSwim = setInterval(swimDown,100) 
+        function swimDown(){
+            if(y<420){
+                y=y+20
+                swimmer.style.top = y +'px'
+            }else{y===420}
+        }  
+        await stop(time)
+        clearInterval(startSwim)
     }   
     
     async function up(time){
-    let startSwim = setInterval(swimUp,200) 
+    let startSwim = setInterval(swimUp,100) 
     function swimUp(){
         if(y>0){
             y=y-20
@@ -62,13 +64,11 @@ async function right(time){
         setTimeout(resolve, time)
     })  
     }
-    
-   
+       
     let killAudio=document.querySelector("#audioDeath")
     
     function clickKill(creature){
         function kill(){
-            creature.remove()
             killAudio.play()
             scoreCount.push(-50)
             score=0
@@ -77,25 +77,37 @@ async function right(time){
             })
             let totalScore=score
             para.innerText=totalScore
-            document.getElementById('scoreCount').appendChild(para)
-            console.log(score)
         }
         creature.addEventListener('click', kill)
-    
         }
-    
-        async  function route(){
-            right(1000)
-            await down(1000)
+        async function route(){
+            await down(600)
             await right(1000)
-            await up(500)
-            await right(1000)
-            await down(1000)
+            await up(300)
             await left(1000)
+            await down(100)
+            await right(1000)
+            await down(1800)
+            up(1500)
+            right(900)
+            await down(1000)
+            await left(2000)
+            await right(2000)
+            await up(1500)
+            await left(1000)
+            down(1000)
+            left(1000)
+            await right(1500)
+            await up(1000)
+            await down(1000)
+            right(1000)
+            down(1000)
+            await right(500)
             await up(500)
-            right(200)
-            }
-        
+            await left(1500)
+            await down (500)
+        }       
+                    
         route()
         clickKill(swimmer)      
     }

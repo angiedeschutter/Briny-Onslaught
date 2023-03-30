@@ -7,17 +7,14 @@ resetButton.addEventListener('click', function(){
     location.reload()
 })
 
-
-
-
 async function startGame(){
     gameTimer()
+    gameOver(20000)
     startSwimmer()
     jellySwim()
     await pause(5000)
-    startSwimmer()
-    jellySwim()   
-    gameOver() 
+    jellySwim()
+
 }
 
 function pause(time){
@@ -33,7 +30,7 @@ para.innerText=score
 document.getElementById('scoreCount').appendChild(para)
 
 
-let time = 5
+let time = 20
 const timer = document.getElementById('timer')
 timer.innerText=time +'s'
 
@@ -49,25 +46,34 @@ async function gameTimer(){
         clearInterval(timerDisplay)
       }   
     }
-
 }
 
-function gameOver(){
-    if(time===0 && score === 400){
+let gameOverAudio=document.querySelector("#gameOverAudio")
+
+async function gameOver(time){
+    await pause(time)
+    document.getElementById('start').disabled=true
+    gameOverAudio.play()
+    if(score === 400){
     const div = document.createElement('div')
     div.innerText="GAME OVER\nPrefect!"
     document.getElementById('backgroundDiv').appendChild(div)
+    div.style.paddingLeft=294+'px';
+    div.style.paddingRight= 294+'px';
     }
-    else if(time===0 && score > 100){
+    else if(score > 50){
         const div = document.createElement('div')
         div.innerText="GAME OVER\nNice Job!"
         document.getElementById('backgroundDiv').appendChild(div)
+        div.style.paddingLeft=294+'px';
+        div.style.paddingRight= 294+'px';
         }
     else{
         const div = document.createElement('div')
         div.innerText="GAME OVER\nTry Harder Next Time"
          document.getElementById('backgroundDiv').appendChild(div)
-         console.log(score)
+         div.style.paddingLeft=220+'px';
+         div.style.paddingRight= 220+'px';
     }    
 
 }
