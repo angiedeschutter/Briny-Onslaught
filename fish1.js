@@ -1,55 +1,58 @@
+
 function fish1Swim(){
-    let fish1Swim = document.createElement('img')
-    fish1Swim.src = './assets/fish1.png'
-    fish1Swim.style.position = 'fixed'
-    document.body.append(fish1Swim)
-    fish1Swim.style.height=50+'px'
-    x=0
-    y=0
+    let fishSwim = document.createElement('img')
+    fishSwim.src = './assets/fish1.png'
+    fishSwim.style.position = 'fixed'
+    document.body.append(fishSwim)
+    fishSwim.style.height=100+'px'
+    xF=100
+    fishSwim.style.left = xF +'px'
+    yF=200
+    fishSwim.style.top = yF +'px'
 
     async function right(time){
-        let startSwim = setInterval(swimRight,100)     
+        let startSwim = setInterval(swimRight,1)     
         function swimRight(){
-            if(x<700){
-                x=x+20
-                fish1Swim.style.left = x +'px'
-            }else{x===700}
+            if(xF<700){
+                xF=xF+2
+                fishSwim.style.left = xF +'px'
+            }else{xF===700}
         }     
         await stop(time)
         clearInterval(startSwim)
     }   
         
     async function left(time){
-        let startSwim = setInterval(swimLeft,100) 
+        let startSwim = setInterval(swimLeft,1) 
         function swimLeft(){
-            if(x>0){
-                x=x-20
-                fish1Swim.style.left = x +'px'
-            }else{x===0}
+            if(xF>0){
+                xF=xF-2
+                fishSwim.style.left = xF +'px'
+            }else{xF===0}
         } 
         await stop(time)
         clearInterval(startSwim)
     }  
         
     async function down(time){
-        let startSwim = setInterval(swimDown,200) 
+        let startSwim = setInterval(swimDown,1) 
         function swimDown(){
-            if(y<280){
-                y=y+20
-                fish1Swim.style.top = y +'px'
-            }else{y===280}
+            if(yF<280){
+                yF=yF+2
+                fishSwim.style.top = yF +'px'
+            }else{yF===280}
         }     
         await stop(time)
         clearInterval(startSwim)
     }   
         
     async function up(time){
-        let startSwim = setInterval(swimUp,200) 
+        let startSwim = setInterval(swimUp,1) 
         function swimUp(){
-            if(y>0){
-                y=y-20
-                fish1Swim.style.top = y +'px'
-            }else{y===0}
+            if(yF>0){
+                yF=yF-2
+                fishSwim.style.top = yF +'px'
+            }else{yF===0}
         }  
         await stop(time)
         clearInterval(startSwim)
@@ -67,7 +70,7 @@ function fish1Swim(){
         function kill(){
             creature.remove()
             killAudio.play()
-            scoreCount.push(100)
+            scoreCount.push(200)
             score=0
             scoreCount.forEach(value =>{
                 score+=value
@@ -79,24 +82,57 @@ function fish1Swim(){
         creature.addEventListener('click', kill)
     }
     
-    async function routeJ(){
+    async function route(){
         await down(600)
-        await right(1000)
+        right(700)
         await up(300)
-        await left(1000)
+        await left(700)
+        await right(700)
+        await up(500)
+        await right(500)
+        await up(500)
+        await left(600)
         await down(100)
         await right(1000)
-        await down(2400)
-        await up(1500)
+        await down(400)
+        await up(500)
         await down(100)
-        await right(2000)
-        await right(100)
-        left(90)
+        await left(1000)
+        await right(200)
+        down (300)
+        await left(90)
+        await down(100)
+        await right(1000)
+        await down(400)
+        await up(500)
+        await down(100)
+        await left(1000)
+        await right(200)
+        down (300)
+        await left(90)
+        await down(600)
+        right(700)
+        await up(300)
+        await left(700)
+        await right(700)
+        await up(500)
+        await right(500)
+        await up(500)
+        await down(400)
+        await up(500)
+        await down(100)
+        await left(1000)
+        await right(200)
+        down (300)
+        await left(700)
+        await right(700)
+        await up(500)
+        await right(500)
     }       
     
     async function fish1Combo(){
-        routeJ()
-        clickKill(fish1Swim)
+        route()
+        clickKill(fishSwim)
     }
 
     fish1Combo()

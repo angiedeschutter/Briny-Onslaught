@@ -9,13 +9,13 @@ function startSwimmer(){
     swimmer.style.left = x +'px'
     y=0
     swimmer.style.top = y +'px'
-    swimmer.style.height=30+'px'
+    swimmer.style.height=40+'px'
 
 async function right(time){
-    let startSwim = setInterval(swimRight,100) 
+    let startSwim = setInterval(swimRight,1) 
     function swimRight(){
         if(x<725){
-            x=x+20
+            x=x+1
             swimmer.style.left = x +'px'
         }else{x===725}
     }  
@@ -24,10 +24,10 @@ async function right(time){
     }   
     
     async function left(time){
-    let startSwim = setInterval(swimLeft,100) 
+    let startSwim = setInterval(swimLeft,1) 
     function swimLeft(){
         if(x>20){
-            x=x-20
+            x=x-1
             swimmer.style.left = x +'px'
         }else{x===20}
     }  
@@ -36,10 +36,10 @@ async function right(time){
     }  
     
     async function down(time){
-        let startSwim = setInterval(swimDown,100) 
+        let startSwim = setInterval(swimDown,1) 
         function swimDown(){
             if(y<420){
-                y=y+20
+                y=y+1
                 swimmer.style.top = y +'px'
             }else{y===420}
         }  
@@ -48,10 +48,10 @@ async function right(time){
     }   
     
     async function up(time){
-    let startSwim = setInterval(swimUp,100) 
+    let startSwim = setInterval(swimUp,1) 
     function swimUp(){
         if(y>0){
-            y=y-20
+            y=y-1
             swimmer.style.top = y +'px'
         }else{y===0}
     }  

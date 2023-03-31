@@ -12,7 +12,16 @@ async function startGame(){
     gameOver(20000)
     startSwimmer()
     jellySwim()
+    octopusSwim()
+    eelSwim()
+    fish1Swim()
     await pause(5000)
+    jellySwim()
+    await pause(5000)
+    octopusSwim()
+    eelSwim()
+    fish1Swim()
+    await pause(1000)
     jellySwim()
 
 }
@@ -54,14 +63,14 @@ async function gameOver(time){
     await pause(time)
     document.getElementById('start').disabled=true
     gameOverAudio.play()
-    if(score === 400){
+    if(score === 1800){
     const div = document.createElement('div')
     div.innerText="GAME OVER\nPrefect!"
     document.getElementById('backgroundDiv').appendChild(div)
     div.style.paddingLeft=294+'px';
     div.style.paddingRight= 294+'px';
     }
-    else if(score > 50){
+    else if(score > 800){
         const div = document.createElement('div')
         div.innerText="GAME OVER\nNice Job!"
         document.getElementById('backgroundDiv').appendChild(div)

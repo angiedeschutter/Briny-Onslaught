@@ -5,55 +5,57 @@ function octopusSwim(){
     octopusSwim.style.position = 'fixed'
     document.body.append(octopusSwim)
     octopusSwim.style.height=100+'px'
-    x=0
-    y=0
+    xO=400
+    octopusSwim.style.left = xO +'px'
+    yO=100
+    octopusSwim.style.top = yO +'px'
 
-    async function right(time){
-        let startSwim = setInterval(swimRight,100)     
-        function swimRight(){
-            if(x<700){
-                x=x+20
-                octopusSwim.style.left = x +'px'
+    async function rightO(time){
+        let startSwimO = setInterval(swimRightO,1)     
+        function swimRightO(){
+            if(xO<700){
+                xO=xO+1
+                octopusSwim.style.left = xO +'px'
             }else{x===700}
         }     
         await stop(time)
-        clearInterval(startSwim)
+        clearInterval(startSwimO)
     }   
         
-    async function left(time){
-        let startSwim = setInterval(swimLeft,100) 
-        function swimLeft(){
-            if(x>0){
-                x=x-20
-                octopusSwim.style.left = x +'px'
-            }else{x===0}
+    async function leftO(time){
+        let startSwimO = setInterval(swimLeftO,1) 
+        function swimLeftO(){
+            if(xO>0){
+                xO=xO-1
+                octopusSwim.style.left = xO +'px'
+            }else{xO===0}
         } 
         await stop(time)
-        clearInterval(startSwim)
+        clearInterval(startSwimO)
     }  
         
-    async function down(time){
-        let startSwim = setInterval(swimDown,200) 
-        function swimDown(){
-            if(y<280){
-                y=y+20
-                octopusSwim.style.top = y +'px'
-            }else{y===280}
+    async function downO(time){
+        let startSwimO = setInterval(swimDownO,1) 
+        function swimDownO(){
+            if(yO<320){
+                yO=yO+1
+                octopusSwim.style.top = yO +'px'
+            }else{yO===320}
         }     
         await stop(time)
-        clearInterval(startSwim)
+        clearInterval(startSwimO)
     }   
         
-    async function up(time){
-        let startSwim = setInterval(swimUp,200) 
-        function swimUp(){
-            if(y>0){
-                y=y-20
-                octopusSwim.style.top = y +'px'
-            }else{y===0}
+    async function upO(time){
+        let startSwimO = setInterval(swimUpO,1) 
+        function swimUpO(){
+            if(yO>0){
+                yO=yO-1
+                octopusSwim.style.top = yO +'px'
+            }else{yO===0}
         }  
         await stop(time)
-        clearInterval(startSwim)
+        clearInterval(startSwimO)
     }   
         
     function stop(time){
@@ -80,25 +82,41 @@ function octopusSwim(){
         creature.addEventListener('click', kill)
     }
     
-    async function routeJ(){
-        await down(600)
-        await right(1000)
-        await up(300)
-        await left(1000)
-        await down(100)
-        await right(1000)
-        await down(2400)
-        await up(1500)
-        await down(100)
-        await right(2000)
-        await right(100)
-        left(90)
-    }       
-    
-    async function octopusCombo(){
-        routeJ()
-        clickKill(octopusSwim)
-    }
+    async function routeO(){
+        await rightO(900)
+        await downO(900)
+        leftO(900)
+        await upO(600)
+        await rightO(700)
+        await downO(600)
+        await leftO(1000)
+        await upO(700)
+        await downO(1000)
+        await upO(800)
+        await leftO(1000)
+        await upO(100)
+        await rightO(400)
+        await upO(500)
+        await leftO(1000)
+        await downO(1000)
+        rightO(1200)
+        upO(1000)
+        await upO(700)
+        await downO(1000)
+        await upO(800)
+        await leftO(1000)
+        await upO(100)
+        await rightO(400)
+        await upO(500)
+        await leftO(1000)
+        downO(1000)
+        leftO(1000)
+        await rightO(1000)
+        downO(1000)
+        leftO(1000)
 
-    octopusCombo()
+    }       
+        routeO()
+        clickKill(octopusSwim)
+
 }
