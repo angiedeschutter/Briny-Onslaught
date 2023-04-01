@@ -12,10 +12,10 @@ function eelSwim(){
     async function right(time){
         let startSwim = setInterval(swimRight,1)     
         function swimRight(){
-            if(xE<700){
+            if(xE<680){
                 xE=xE+2
                 eelSwim.style.left = xE +'px'
-            }else{x===700}
+            }else{x===680}
         }     
         await stop(time)
         clearInterval(startSwim)
@@ -36,10 +36,10 @@ function eelSwim(){
     async function down(time){
         let startSwim = setInterval(swimDown,1) 
         function swimDown(){
-            if(yE<320){
+            if(yE<434){
                 yE=yE+2
                 eelSwim.style.top = yE +'px'
-            }else{yE===320}
+            }else{yE===434}
         }     
         await stop(time)
         clearInterval(startSwim)
@@ -48,10 +48,10 @@ function eelSwim(){
     async function up(time){
         let startSwim = setInterval(swimUp,1) 
         function swimUp(){
-            if(yE>0){
+            if(yE>114){
                 yE=yE-2
                 eelSwim.style.top = yE +'px'
-            }else{yE===0}
+            }else{yE===114}
         }  
         await stop(time)
         clearInterval(startSwim)
@@ -76,7 +76,6 @@ function eelSwim(){
             })
             let totalScore=score
             para.innerText=totalScore
-            document.getElementById('scoreCount').appendChild(para)
         }
         creature.addEventListener('click', kill)
     }

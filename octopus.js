@@ -37,10 +37,10 @@ function octopusSwim(){
     async function downO(time){
         let startSwimO = setInterval(swimDownO,1) 
         function swimDownO(){
-            if(yO<320){
+            if(yO<434){
                 yO=yO+1
                 octopusSwim.style.top = yO +'px'
-            }else{yO===320}
+            }else{yO===434}
         }     
         await stop(time)
         clearInterval(startSwimO)
@@ -49,10 +49,10 @@ function octopusSwim(){
     async function upO(time){
         let startSwimO = setInterval(swimUpO,1) 
         function swimUpO(){
-            if(yO>0){
+            if(yO>114){
                 yO=yO-1
                 octopusSwim.style.top = yO +'px'
-            }else{yO===0}
+            }else{yO===114}
         }  
         await stop(time)
         clearInterval(startSwimO)
@@ -77,7 +77,6 @@ function octopusSwim(){
             })
             let totalScore=score
             para.innerText=totalScore
-            document.getElementById('scoreCount').appendChild(para)
         }
         creature.addEventListener('click', kill)
     }

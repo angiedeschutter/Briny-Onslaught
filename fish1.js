@@ -37,10 +37,10 @@ function fish1Swim(){
     async function down(time){
         let startSwim = setInterval(swimDown,1) 
         function swimDown(){
-            if(yF<280){
+            if(yF<394){
                 yF=yF+2
                 fishSwim.style.top = yF +'px'
-            }else{yF===280}
+            }else{yF===394}
         }     
         await stop(time)
         clearInterval(startSwim)
@@ -49,10 +49,10 @@ function fish1Swim(){
     async function up(time){
         let startSwim = setInterval(swimUp,1) 
         function swimUp(){
-            if(yF>0){
+            if(yF>114){
                 yF=yF-2
                 fishSwim.style.top = yF +'px'
-            }else{yF===0}
+            }else{yF===114}
         }  
         await stop(time)
         clearInterval(startSwim)
@@ -77,7 +77,6 @@ function fish1Swim(){
             })
             let totalScore=score
             para.innerText=totalScore
-            document.getElementById('scoreCount').appendChild(para)
         }
         creature.addEventListener('click', kill)
     }

@@ -1,15 +1,18 @@
 let startButton =document.getElementById('start')
 startButton.addEventListener('click', startGame)
 
-let resetButton =document.getElementById('reset')
-resetButton.addEventListener('click', function(){
+let replaytButton =document.getElementById('replay')
+replaytButton.addEventListener('click', function(){
     score = 0
     location.reload()
 })
 
+
+
 async function startGame(){
+    document.getElementById('start').disabled=true
     gameTimer()
-    gameOver(20000)
+    gameOver(200)
     startSwimmer()
     jellySwim()
     octopusSwim()
@@ -34,9 +37,9 @@ function pause(time){
 
 let scoreCount = []
 let score=0
-const para = document.createElement('p')
+const para = document.getElementById('scoreCount')
 para.innerText=score
-document.getElementById('scoreCount').appendChild(para)
+
 
 
 let time = 20
@@ -50,7 +53,7 @@ async function gameTimer(){
       if (time>0){
           time=time-1
         const timer = document.getElementById('timer')
-        timer.innerText=time +'s'
+        timer.innerText=time +' s'
       } else{
         clearInterval(timerDisplay)
       }   
@@ -61,28 +64,27 @@ let gameOverAudio=document.querySelector("#gameOverAudio")
 
 async function gameOver(time){
     await pause(time)
-    document.getElementById('start').disabled=true
     gameOverAudio.play()
     if(score === 1800){
     const div = document.createElement('div')
     div.innerText="GAME OVER\nPrefect!"
     document.getElementById('backgroundDiv').appendChild(div)
-    div.style.paddingLeft=294+'px';
-    div.style.paddingRight= 294+'px';
+    div.style.paddingLeft=265+'px';
+    div.style.paddingRight= 265+'px';
     }
-    else if(score > 800){
+    else if(score > 700){
         const div = document.createElement('div')
         div.innerText="GAME OVER\nNice Job!"
         document.getElementById('backgroundDiv').appendChild(div)
-        div.style.paddingLeft=294+'px';
-        div.style.paddingRight= 294+'px';
+        div.style.paddingLeft=261+'px';
+        div.style.paddingRight= 261+'px';
         }
     else{
         const div = document.createElement('div')
         div.innerText="GAME OVER\nTry Harder Next Time"
          document.getElementById('backgroundDiv').appendChild(div)
-         div.style.paddingLeft=220+'px';
-         div.style.paddingRight= 220+'px';
+         div.style.paddingLeft=113+'px';
+         div.style.paddingRight= 110+'px';
     }    
 
 }

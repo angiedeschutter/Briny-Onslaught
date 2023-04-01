@@ -8,30 +8,31 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>    
+    <div id="heading">
+            <h1 id="title">Briny Onslaught</h1>
+            <img id="swimAnime"></div>
+    </div>
     <div class="container">
         <div id="backgroundDiv">
             <img id="background" src="./assets/4_game_background.png">
         </div>
-        <div id="controls">
-            <p id="startMessage">Protect the Swimmer from the Sea Creatures but be careful not to hurt the swimmer!</p>
-            <table id="score">
-                 <thead>
-                    <tr>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody><tr><td id="scoreCount"></td></tr></tbody>
-                <tfoot></tfoot>
-            </table>
-            <p id="timer"></p>
-            <button id="start">Start</button>
-            <button id="reset">Reset</button>
+        <div id="controls-container">
+            <div id="controls">
+                <p id="startMessage">Protect the Swimmer from the Sea Creatures but be careful not to hurt the swimmer!</p>
+                <p id="score">Score</p>
+                <p id="scoreCount"></p>
+                <p id="timeText">Time Left:</p>
+                <p id="timer"></p>
+                <button id="start">Start</button>
+                <button id="replay">Replay</button>
+            </div>
         </div>
     </div>
     </body>
     <audio id="audioDeath"><source src="./assets/cartoon-jump-6462.mp3" type="audio/mpeg"></audio>
     <audio id="gameOverAudio"><source src="./assets/videogame-death-sound-43894.mp3" type="audio/mpeg"></audio>
     <script src="./swimmer.js"></script>
+    <script src="./swimming-animation.js"></script>
     <script src="./jellyfish.js"></script>
     <script src="./eel.js"></script>
     <script src="./fish1.js"></script>

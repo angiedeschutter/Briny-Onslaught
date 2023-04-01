@@ -7,7 +7,7 @@ function startSwimmer(){
     document.getElementById('backgroundDiv').appendChild(swimmer)
     x=0
     swimmer.style.left = x +'px'
-    y=0
+    y=113
     swimmer.style.top = y +'px'
     swimmer.style.height=40+'px'
 
@@ -38,10 +38,10 @@ async function right(time){
     async function down(time){
         let startSwim = setInterval(swimDown,1) 
         function swimDown(){
-            if(y<420){
+            if(y<534){
                 y=y+1
                 swimmer.style.top = y +'px'
-            }else{y===420}
+            }else{y===534}
         }  
         await stop(time)
         clearInterval(startSwim)
@@ -50,10 +50,10 @@ async function right(time){
     async function up(time){
     let startSwim = setInterval(swimUp,1) 
     function swimUp(){
-        if(y>0){
+        if(y>114){
             y=y-1
             swimmer.style.top = y +'px'
-        }else{y===0}
+        }else{y===114}
     }  
     await stop(time)
     clearInterval(startSwim)
@@ -112,3 +112,4 @@ async function right(time){
         clickKill(swimmer)      
     }
     
+

@@ -1,3 +1,22 @@
+@font-face {
+    font-family:Arcade_Classic;
+    src:url(assets/ARCADECLASSIC.TTF);
+}
+
+body{
+    background-color:black;
+}
+h1{
+    color:white;
+    font-family: Arcade_Classic;
+    font-size:3em;
+    display:inline-block
+}
+
+#swimAnime{
+    display: inline-block;
+}
+
 #background{
     position: relative;
     z-index: -1;
@@ -7,50 +26,80 @@
 .container{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    
 }
 
 #controls{
+    width:250px;
+    height:445px;
     border-style: double;
-    display: inline-flex;
+    display: inline-block;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     flex-grow: 1;
-    background-color:aqua
-
-}
-#score, #timer{
+    background-color: #949da7;
+    font-family: Arcade_Classic;
     text-align: center;
     border-style: double;
+    color:white;
+    text-shadow:  0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black;
+}
+
+#timeText{
+    margin-bottom: 0px;
+    font-size: 1.75em;
+}
+
+#scoreCount{
+    font-size: 1.5em;
+}
+
+#score{
+    font-size: 1.75em;
+}
+
+#timer{
+    margin-top: 0px;
+    font-size: 1.75em;
 }
 
 #startMessage{
-    text-align: center;
-
+    font-size: 1.5em;
 }
 
 #backgroundDiv>div{
     position: absolute;
-    color:brown;
-    top: 0;
+    color:black;
+    top: 120px;
     left: 0;
     background-color: azure;  
     opacity: .8;
-    padding-top: 182px;
-    padding-bottom: 182px;
-    font-size:40px;
+    padding-top: 160px;
+    padding-bottom: 165px;
+    padding-left:20px;
+    padding-right: 20px;
+    font-size:60px;
     z-index:1;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Arcade_Classic;
     text-shadow: 2px 2px #FFFF00;
     text-align: center;
     border:double;
     animation-name: gameOver;
     animation-duration: 1s;
-    animation-iteration-count: 20;
+    animation-iteration-count: 30;
 }
 
 @keyframes gameOver {
-    from {color: brown;}
-    to {color: blue;}
+    from {color: black;}
+    to {color: gray;}
+  }
+
+  button{
+    font-family: Arcade_Classic;
+    border-radius: 12px;
+    border: 2px solid black;
+    font-size: 1.75em;
+  }
+
+  button:hover{
+    opacity:.5;
   }

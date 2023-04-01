@@ -37,10 +37,10 @@ function jellySwim(){
     async function downJ(time){
         let startSwimJ = setInterval(swimDownJ,1) 
         function swimDownJ(){
-            if(yJ<320){
+            if(yJ<434){
                 yJ=yJ+3
                 jellyfish.style.top = yJ +'px'
-            }else{yJ===320}
+            }else{yJ===434}
         }     
         await stop(time)
         clearInterval(startSwimJ)
@@ -49,10 +49,10 @@ function jellySwim(){
     async function upJ(time){
         let startSwimJ = setInterval(swimUpJ,1) 
         function swimUpJ(){
-            if(yJ>0){
+            if(yJ>114){
                 yJ=yJ-3
                 jellyfish.style.top = yJ +'px'
-            }else{yJ===0}
+            }else{yJ===114}
         }  
         await stop(time)
         clearInterval(startSwimJ)
@@ -77,7 +77,6 @@ function jellySwim(){
             })
             let totalScore=score
             para.innerText=totalScore
-            document.getElementById('scoreCount').appendChild(para)
         }
         creature.addEventListener('click', kill)
     }
