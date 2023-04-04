@@ -18,6 +18,8 @@ To download a copy:
 
 git clone https://github.com/angiedeschutter/Briny-Onslaught
 
+https://angiedeschutter.github.io/Briny-Onslaught/
+
 ## Troubleshooting
 
 Try not to drag click and click the center of each creature.
