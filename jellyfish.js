@@ -1,86 +1,77 @@
+/*This function spawns a jellysih and a route.
+Each creature needs to have it's own route functions
+with different x and y variables, otherwise they interfere
+with each other. Each creature needs to create and append
+the image file within the swim function below, otherwise
+it will not spawn multiple creatures when invoked.
+*/
 
 function jellySwim(){
     let jellyfish = document.createElement('img')
-    jellyfish.src = './assets/jellyfish.png'
+    jellyfish.src= './assets/jellyfish.png'
     jellyfish.style.position = 'fixed'
-    document.body.append(jellyfish)
     jellyfish.style.height=150+'px'
+    document.body.append(jellyfish)
     xJ=200
     jellyfish.style.left = xJ +'px'
     yJ=200
     jellyfish.style.top = yJ +'px'
-
+//this moves the swimmer right on the screen for a given time and stays within the background
     async function rightJ(time){
-        let startSwimJ = setInterval(swimRightJ,1)     
+        let startSwimJ = setInterval(swimRightJ,6)     
         function swimRightJ(){
             if(xJ<700){
                 xJ=xJ+3
                 jellyfish.style.left = xJ +'px'
             }else{xJ===700}
         }     
-        await stop(time)
+        await wait(time)
         clearInterval(startSwimJ)
     }   
-        
+//this moves the swimmer left on the screen for a given time and stays within the background        
     async function leftJ(time){
-        let startSwimJ = setInterval(swimLeftJ,1) 
+        let startSwimJ = setInterval(swimLeftJ,6) 
         function swimLeftJ(){
             if(xJ>0){
                 xJ=xJ-3
                 jellyfish.style.left = xJ +'px'
             }else{xJ===0}
         } 
-        await stop(time)
+        await wait(time)
         clearInterval(startSwimJ)
     }  
-        
+//this moves the swimmer down on the screen for a given time and stays within the background        
     async function downJ(time){
-        let startSwimJ = setInterval(swimDownJ,1) 
+        let startSwimJ = setInterval(swimDownJ,6) 
         function swimDownJ(){
             if(yJ<434){
                 yJ=yJ+3
                 jellyfish.style.top = yJ +'px'
             }else{yJ===434}
         }     
-        await stop(time)
+        await wait(time)
         clearInterval(startSwimJ)
     }   
-        
+//this moves the swimmer up on the screen for a given time and stays within the background        
     async function upJ(time){
-        let startSwimJ = setInterval(swimUpJ,1) 
+        let startSwimJ = setInterval(swimUpJ,6) 
         function swimUpJ(){
             if(yJ>114){
                 yJ=yJ-3
                 jellyfish.style.top = yJ +'px'
             }else{yJ===114}
         }  
-        await stop(time)
+        await wait(time)
         clearInterval(startSwimJ)
     }   
-        
-    function stop(time){
+//This function sets a time out promise to make sure each route function is completed before the next one is invoked               
+    function wait(time){
         return new Promise(resolve => {
             setTimeout(resolve, time)
         })  
     }
-                        
-    let killAudio=document.querySelector("#audioDeath")
-        
-    function clickKill(creature){
-        function kill(){
-            creature.remove()
-            killAudio.play()
-            scoreCount.push(300)
-            score=0
-            scoreCount.forEach(value =>{
-                score+=value
-            })
-            let totalScore=score
-            para.innerText=totalScore
-        }
-        creature.addEventListener('click', kill)
-    }
-    
+ 
+  //This it the jellyfish's route   
     async function route1(){
         await downJ(600)
         await rightJ(700)
@@ -128,14 +119,8 @@ function jellySwim(){
         await upJ(500)
         await leftJ(400)
         await downJ(700)
-
     }
-     
-    async function jellyCombo(){
         route1()
-        clickKill(jellyfish)
-    }
-
-    jellyCombo()
+        //This invokes the function to kill the given creature and push the given points to the total score
+        clickKill(jellyfish, 300)
 }
-

@@ -1,3 +1,4 @@
+/*This is a custom font downloaded from www.pizzadude.dk*/
 @font-face {
     font-family:Arcade_Classic;
     src:url(assets/ARCADECLASSIC.TTF);
@@ -6,6 +7,7 @@
 body{
     background-color:black;
 }
+
 h1{
     color:white;
     font-family: Arcade_Classic;
@@ -49,12 +51,9 @@ h1{
     font-size: 1.75em;
 }
 
-#scoreCount{
-    font-size: 1.5em;
-}
-
-#score{
-    font-size: 1.75em;
+#scoreCount, #score{
+    font-size: 3em;
+    margin:0;
 }
 
 #timer{
@@ -87,12 +86,13 @@ h1{
     animation-duration: 1s;
     animation-iteration-count: 30;
 }
-
+/*This controls the message animation when the game is over and flashes between gray and black every second*/
 @keyframes gameOver {
     from {color: black;}
     to {color: gray;}
   }
 
+  /*This styles the buttons for start and replay*/
   button{
     font-family: Arcade_Classic;
     border-radius: 12px;
@@ -100,6 +100,7 @@ h1{
     font-size: 1.75em;
   }
 
+/*This cahnges the opacity of the button when you hover the cusor over it*/
   button:hover{
     opacity:.5;
   }
